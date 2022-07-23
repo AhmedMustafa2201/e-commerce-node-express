@@ -3,6 +3,8 @@ const morgan = require('morgan')
 const debug = require('debug')('app');
 const path = require('path')
 
+// connecting to db
+require('./src/config/db')()
 
 const PORT = process.env.PORT || 3000;
 const app = express();
