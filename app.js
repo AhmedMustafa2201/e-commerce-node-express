@@ -2,6 +2,9 @@ const express = require("express");
 const morgan = require('morgan')
 const debug = require('debug')('app');
 const path = require('path');
+const passport = require('passport')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 require('dotenv').config()
 
 const productsRouter = require("./src/routes/productRouter");
@@ -14,6 +17,9 @@ app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use(express.json())
 app.use(express.urlencoded({ extended:false }))
+app.use(cookieParser())
+app.use(session({secret: 'ecommerce-express-secret'}))
+require('./src/config/passport')(app)
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
