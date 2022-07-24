@@ -8,7 +8,7 @@ module.exports = function localStrategy() {
       { usernameField: "username", passwordField: "password" },
       (username, password, done) => {
 
-        const url = 'mongodb+srv://demo_express_user:RBNTuqlUWSPMbOp5@expressdemo.hffembd.mongodb.net/?retryWrites=true&w=majority';
+        const url = process.env.DB_URL;
         const dbName = 'globalMantics';
         
         (async function validateUser(){
