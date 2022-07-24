@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require('morgan')
 const debug = require('debug')('app');
 const path = require('path');
+require('dotenv').config()
+
 const productsRouter = require("./src/routes/productRouter");
 
 

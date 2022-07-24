@@ -5,7 +5,7 @@ const debug = require("debug")("app:db");
 const connect = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://demo_express_user:RBNTuqlUWSPMbOp5@expressdemo.hffembd.mongodb.net/ecommerce?retryWrites=true&w=majority`,
+      process.env.DB_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
