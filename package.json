@@ -8,7 +8,7 @@
     "debug": "set DEBUG=* & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ahmed mustafa",
   "license": "ISC",
   "dependencies": {
     "debug": "^4.3.4",
