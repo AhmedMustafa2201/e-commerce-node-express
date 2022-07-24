@@ -188,7 +188,17 @@ color: #fff;line-height: 45px;
     margin: 0 auto;
     left: 0;
     right: 0;
-bottom: 28px;}
+bottom: 28px;
+}
+
+.read-more-btn-custom{
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 140px;
+}
 
 .adj_text img {position:relative;
 width: 100%;}

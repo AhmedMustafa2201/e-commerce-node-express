@@ -119,69 +119,24 @@
       </div>
     </header>
 
-
-    <section class="banner">
-      <img src="/images/hero image.png" />
-      <div class="inner-content col-md-12">
-        <div class="container jumboContainer">
-          <div class=" col-md-8 middle">
-            <h1>THE FUTURE<br> <span>WAS FIVE MINUTES AGO</span>.</h1>
-
-            <p>We were there and it is going to be epic</p>
-          </div>
-
-          <div class="content-right col-md-4">
-            <h3>FUTURE</h3><span>CONFERENCE</span>
-            <div class="text-center">
-              <!-- <form name="signup" action="/auth/signUp" method="post">
-                username: <input name="username" id="username" style="color: black;"/><br/>
-                password: <input type="password" name="password" id="password" style="color: black;"/><br/>
-              </form> -->
-              <input type="submit" value="SIGN UP TODAY" class="btn btn-primary btn-lg"></input>
-            </div>
-            <p>Tickets are selling fast
-              get yours today and be
-              there in the future</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="sec_include">
+      <h1 style="text-align: center; padding-top: 5rem;" class="adj_text">Products List</h1>
       <div class="container">
-
-
+        
         <div class="row">
-          <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
+          <% products?.map((product, index)=>{%>
+          <div style="margin-top: 2rem;" class="col-xs-12 col-sm-4 col-md-4 adj_text">
 
 
-            <h3>DARK ENERGY</h3>
-            <p>BRIGHTENS THE WORLD</p>
-            <img src="/images/Bitmap.png" alt="Public Adjuster" />
-
-            <div class="read-more-btn">
-              <a href="/#" class="btn-oval">Learn More</a>
+            <img src="<%=product.thumbnail%>" style="max-height: 11em;" alt="<%=product.title%>" />
+            <h3><%=product.title%></h3>
+            <p><%=product.description.slice(0,40)%>...</p>
+            
+            <div class="read-more-btn-custom">
+              <a href="/products/<%=product._id%>" class="btn-oval">Learn More</a>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
-            <h3>ROBOTICS</h3>
-            <p>THEY ARE HERE AND THEY PLAY</p>
-            <img src="/images/Bitmap(1).png" alt="Public" />
-            <div class="read-more-btn">
-              <a href="/robotics.html" class="btn-oval">Learn More</a>
-            </div>
-
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
-            <h3>STRANGERS RISE</h3>
-            <p>ASCENSION GOES TECHNICAL</p>
-            <img src="/images/shutterstock_211091626.png" alt="Public" />
-            <div class="read-more-btn">
-              <a href="/#" class="btn-oval">Learn More</a>
-
-            </div>
-
-          </div>
+          <% }) %>
         </div>
       </div>
     </section>
