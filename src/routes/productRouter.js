@@ -10,9 +10,9 @@ const Product = require("../model/Product");
 const productsRouter = express.Router();
 
 productsRouter.route('/').get(async (req, res) => {
-    await connect()
+    // await connect()
     const products = await Product.find()
-    await mongoose.disconnect()
+    // await mongoose.disconnect()
     
     res.render('products', { products })
 })
@@ -20,10 +20,10 @@ productsRouter.route('/').get(async (req, res) => {
 productsRouter.route('/:id').get(async (req, res) => {
     const id = req.params.id
     
-    await connect()
+    // await connect()
     const product = await Product.findById(id)
     const similarProducts = await Product.find({category: product.category, _id:{$ne: product._id}}).limit(2)
-    await mongoose.disconnect()
+    // await mongoose.disconnect()
 
     res.render('single_product', {product, similarProducts})
 })
