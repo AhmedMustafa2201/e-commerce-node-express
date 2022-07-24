@@ -1,10 +1,9 @@
 const express = require("express");
 const morgan = require('morgan')
 const debug = require('debug')('app');
-const path = require('path')
+const path = require('path');
+const productsRouter = require("./src/routes/productRouter");
 
-// connecting to db
-require('./src/config/db')()
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -12,10 +11,12 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended:false }))
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+
+app.use('/products', productsRouter);
 
 app.get('/', (req, res) => {
   res.render('index')
