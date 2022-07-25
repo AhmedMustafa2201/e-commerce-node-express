@@ -12,9 +12,10 @@ const productsRouter = express.Router();
 productsRouter.route('/').get(async (req, res) => {
     // await connect()
     const products = await Product.find()
+    const categories = Array.from(new Set(products.map(pdt => pdt.category)))
     // await mongoose.disconnect()
     
-    res.render('products', { products })
+    res.render('products', { products, categories })
 })
 
 productsRouter.route('/:id').get(async (req, res) => {

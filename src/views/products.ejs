@@ -122,10 +122,15 @@
     <section class="sec_include">
       <h1 style="text-align: center; padding-top: 5rem;" class="adj_text">Products List</h1>
       <div class="container">
-        
         <div class="row">
+          <ul class="nav filter-tab">
+            <li onclick="filterTab(this, 'all')" class="active-tab-element">All</li>
+            <% categories?.map((category)=>{%>
+              <li onclick="filterTab(this, '<%=category%>')"><%=category.toUpperCase()%></li>
+            <% }) %>
+          </ul>
           <% products?.map((product, index)=>{%>
-          <div style="margin-top: 2rem;" class="col-xs-12 col-sm-4 col-md-4 adj_text">
+          <div data-category="<%= product.category %>" style="margin-top: 2rem;" class="col-xs-12 col-sm-4 col-md-4 adj_text">
 
 
             <img src="<%=product.thumbnail%>" style="max-height: 11em;" alt="<%=product.title%>" />
@@ -209,9 +214,22 @@
         jQuery("header").toggleClass("fixed");
       });
 
-
     });
+    
+    function filterTab(el, category){
+      document.getElementsByClassName('active-tab-element')[0].className=''
+      el.className+='active-tab-element'
 
+      let elements = document.querySelectorAll('[data-category]')
+
+      elements.forEach(el => {
+        if(el.attributes[0].value !== category && category !== 'all'){
+          el.style.display = 'none'
+        }else{
+          el.style.display = 'block'
+        }
+      })
+    }
   </script>
 
 </body>
