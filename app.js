@@ -3,11 +3,12 @@ const morgan = require('morgan')
 const debug = require('debug')('app');
 const path = require('path');
 const passport = require('passport')
-// const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 const session = require('express-session')
 require('dotenv').config()
 
 const productsRouter = require("./src/routes/productRouter");
+const authRouter = require("./src/routes/authRouter");
 
 
 const PORT = process.env.PORT || 3000;
@@ -19,17 +20,24 @@ app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use(express.json())
 app.use(express.urlencoded({ extended:false }))
-// app.use(cookieParser())
-app.use(session({secret: 'ecommerce-express-secret'}))
+app.use(cookieParser())
+app.use(
+  session({
+    secret: "ecommerce-express-secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 require('./src/config/passport')(app)
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/products', productsRouter);
+app.use('/auth', authRouter);
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {user: req.user})
 })
 
 app.get('/home', (req, res) => {
