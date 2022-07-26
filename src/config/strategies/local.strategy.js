@@ -1,27 +1,19 @@
 const passport = require("passport");
+const bcrypt = require("bcrypt");
+const debug = require("debug")("app:local.strategy");
 const { Strategy } = require("passport-local");
-const { MongoClient } = require('mongodb')
+const User = require("../../model/User");
 
 module.exports = function localStrategy() {
   passport.use(
     new Strategy(
       { usernameField: "username", passwordField: "password" },
-      (username, password, done) => {
-
-        const url = process.env.DB_URL;
-        const dbName = 'globalMantics';
-        
-        (async function validateUser(){
-            let client 
+      async (username, password, done) => {
             try {
-                client = await MongoClient.connect(url)
-                debug('connected...')
-      
-                const db = client.db(dbName)
-                const user = await db.collection('users').findOne({username})
+                const user = await User.findOne({username})
 
-
-                if(user && user.password === password){
+                const res = await bcrypt.compare(password, user.password)
+                if(user && res){
                   done(null, user)
                 }else{
                   done(null, false)
@@ -30,8 +22,6 @@ module.exports = function localStrategy() {
             } catch (error) {
               done(error, false)
             }
-            client.close()
-        }())
 
         // const user = {username, password, name: "ahmed"}
         // done(null, user)
