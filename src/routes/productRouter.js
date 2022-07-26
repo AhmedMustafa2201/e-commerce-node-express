@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const connect = require('../config/db');
 const debug = require('debug')('app:productRouter');
-const Product = require("../model/Product");
+const Product = require("../models/Product");
 
 // connecting to db
 // const connect = require('./src/config/db')
