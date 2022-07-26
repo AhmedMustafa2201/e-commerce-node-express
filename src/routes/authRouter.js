@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const debug = require("debug")("app:authRouter");
 const passport = require("passport");
-const User = require("../model/User");
+const User = require("../models/User");
 
 const authRouter = express.Router();
 

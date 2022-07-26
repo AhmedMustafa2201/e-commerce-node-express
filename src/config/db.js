@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Product = require("../model/Product");
+const Product = require("../models/Product");
 const debug = require("debug")("app:db");
 
 const connect = async () => {

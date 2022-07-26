@@ -24,11 +24,13 @@ const productSchema = new schema({
     },
     stock:{
         type: Number,
-        required: true,
+        required: false,
+        default: 23757219
     },
     brand:{
         type: String,
-        required: true,
+        required: false,
+        default: "EG2_SKC"
     },
     category:{
         type: String,
