@@ -15,7 +15,7 @@ productsRouter.route('/').get(async (req, res) => {
     const categories = Array.from(new Set(products.map(pdt => pdt.category)))
     // await mongoose.disconnect()
     
-    res.render('products', { products, categories })
+    res.render('products', { products, categories, user: req.user })
 })
 
 productsRouter.route('/:id').get(async (req, res) => {
@@ -26,7 +26,7 @@ productsRouter.route('/:id').get(async (req, res) => {
     const similarProducts = await Product.find({category: product.category, _id:{$ne: product._id}}).limit(2)
     // await mongoose.disconnect()
 
-    res.render('single_product', {product, similarProducts})
+    res.render('single_product', {product, similarProducts, user: req.user})
 })
 
 
