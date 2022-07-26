@@ -1,0 +1,92 @@
+<header>
+  <div class="container">
+    <div class="logo col-md-5 col-sm-5 col-xs-8">
+      <a href="/"><img src="/images/Globo-Logo-white.svg" alt="logo" /></a>
+      <a class="text">ADMIN PANEL</a>
+
+    </div>
+    <div class="mobile-togle col-md-12 col-sm-12 col-xs-12">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" id="hamburger" class="navbar-toggle x collapsed" data-toggle="collapse"
+            data-target="#navbar-collapse-x">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/#top"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-x">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="search1">
+                <button type="submit"><i class="fa fa-search"></i></button> <input type="text" class="form-control"
+                  placeholder="Search">
+              </div>
+            </li>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/products">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="/#">Support</a>
+              </li>
+            </ul>
+          </ul>
+        </div><!-- .navbar-collapse -->
+      </nav>
+    </div>
+
+    <div class="right_section col-md-5 col-xs-12">
+      <div class="search">
+        <button type="submit"><i class="fa fa-search"></i></button> <input type="text" class="form-control"
+          placeholder="Search">
+      </div>
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+
+        <div class="collapse navbar-collapse" style="padding-left: 16.5rem;" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="/#">Support</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+
+    <div class="sign-in col-md-2">
+      <span class="dvider"></span>
+      <div class="sign">
+      <% if(user){ %>
+          <a><img class="sign-in-img" src="/images/avatar.svg" alt="sign-in">
+            Welcome<br /> <%=user.firstName + " " + user.lastName%>
+          </a>
+      <% } else { %>
+          <a data-toggle="modal" data-target="#loginModal"><img class="sign-in-img" src="/images/avatar.svg" alt="sign-in">
+            Sign-in
+          </a>
+          <% } %>
+        </div>
+
+    </div>
+
+  </div>
+</header>
