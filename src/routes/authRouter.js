@@ -42,8 +42,10 @@ authRouter
   );
 
   authRouter.route("/logout").get((req, res) => {
-    req.logout();
-    res.redirect("/");
+    req.logout((err) => {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
   });
 
 module.exports = authRouter;
