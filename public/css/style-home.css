@@ -31,7 +31,11 @@ header
     color: #BDFEF2;
     font-size: 12px;
     font-style: italic;padding-left:12px;
+    text-decoration: inherit;
 
+}
+.text:hover{
+    color: #BDFEF2;
 }
 .logo img {
     border-right: 1px solid #BDFEF2;
@@ -88,7 +92,7 @@ ul.navbar-nav {
     height: 90px;
     border: 1px solid #BDFEF2;
 
-    margin: 0px 40px;
+    margin: 0px 30px;
     display: inline-block;
 
 }
