@@ -76,9 +76,14 @@
       <span class="dvider"></span>
       <div class="sign">
       <% if(user){ %>
-          <a><img class="sign-in-img" src="/images/avatar.svg" alt="sign-in">
-            Welcome<br /> <%=user.firstName + " " + user.lastName%>
+          <a onclick="showOrHideDropdown()"><img class="sign-in-img" src="/images/avatar.svg" alt="sign-in">
+              Welcome<br /> <%=user.firstName + " " + user.lastName%>
+              <span class="caret"></span>
           </a>
+
+          <ul style="display: none;" class="dropdown_custom">
+            <li><a href="/auth/logout">Logout</a></li>
+          </ul>
       <% } else { %>
           <a data-toggle="modal" data-target="#loginModal"><img class="sign-in-img" src="/images/avatar.svg" alt="sign-in">
             Sign-in
@@ -90,3 +95,12 @@
 
   </div>
 </header>
+
+<script>
+  function showOrHideDropdown(){
+    let dropdown_menu = document.getElementsByClassName('dropdown_custom')[0]
+    if(dropdown_menu.style.display === 'none') dropdown_menu.style.display = 'block'
+    else dropdown_menu.style.display = 'none'
+
+  }
+</script>
