@@ -1,0 +1,25 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="loginModalLabel">Sign in</h4>
+        </div>
+        <div class="modal-body">
+          <form action="/auth/signin" method="post">
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">User Name:</label>
+              <input required type="email" class="form-control" id="recipient-name" name="username">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Password:</label>
+              <input required type="password" class="form-control" id="recipient-name" name="password">
+            </div>
+            <div class="modal-footer" style="padding: 0; border: none;">
+              <button type="submit" class="btn btn-success">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
