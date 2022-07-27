@@ -42,4 +42,19 @@ const productSchema = new schema({
     },
 })
 
+productSchema.set('toJSON', {
+    getters: true,
+    transform: (doc, ret) => {
+      if (ret.discountPercentage) {
+        ret.discountPercentage = Number(ret.discountPercentage.toString());
+      }
+      if (ret.rating) {
+        ret.rating = Number(ret.rating.toString());
+      }
+      delete ret.__v;
+      delete ret._id;
+      return ret;
+    },
+  });
+
 module.exports = mongoose.model('Product', productSchema)

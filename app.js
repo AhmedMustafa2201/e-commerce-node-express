@@ -10,6 +10,7 @@ require('dotenv').config()
 const productsRouter = require("./src/routes/productsRouter");
 const authRouter = require("./src/routes/authRouter");
 const adminRouter = require("./src/routes/adminRouter");
+const productEndpointRouter = require("./src/routes/productEndpointRouter");
 
 
 const PORT = process.env.PORT || 3000;
@@ -35,6 +36,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/products', productsRouter);
+app.use('/product', productEndpointRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
 

@@ -1,5 +1,5 @@
 const express = require("express");
-const { upload, parser } = require("../config/cloudinary");
+const { parser } = require("../config/cloudinary");
 const Product = require("../models/Product");
 const debug = require("debug")("app:adminRouter");
 
