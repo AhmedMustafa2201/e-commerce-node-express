@@ -53,13 +53,13 @@
                     <td><%=product.discountPercentage%>%</td>
                     <td><img src="<%=product.thumbnail%>" width="50" height="50" /></td>
                     <td>
-                      <a href="/admin/view/<%=product._id%>" class="btn btn-info">
+                      <!-- <a href="/admin/view/<%=product._id%>" class="btn btn-info">
                         <i class="fa fa-info" aria-hidden="true"></i>
-                      </a>
-                      <a class="btn btn-primary">
+                      </a> -->
+                      <a href="/admin/edit/<%=product._id%>" class="btn btn-primary">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                       </a>
-                      <a class="btn btn-danger">
+                      <a onclick="confirm('Are you sure you want to delete this product?')" href="/admin/delete/<%=product._id%>" class="btn btn-danger">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>
                     </td>
