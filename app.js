@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 require('dotenv').config()
 
-const productsRouter = require("./src/routes/productRouter");
+const productsRouter = require("./src/routes/productsRouter");
 const authRouter = require("./src/routes/authRouter");
 const adminRouter = require("./src/routes/adminRouter");
 
